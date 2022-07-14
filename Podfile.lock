@@ -6,11 +6,13 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SwiftGen (6.5.1)
 
 DEPENDENCIES:
   - lottie-ios (= 3.4.0)
   - RxCocoa (= 6.5.0)
   - RxSwift (= 6.5.0)
+  - SwiftGen (~> 6.5.1)
 
 SPEC REPOS:
   trunk:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftGen
 
 SPEC CHECKSUMS:
   lottie-ios: 69495122151a378fdc7d1bb4c5930347e37baf1f
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
 
-PODFILE CHECKSUM: 459ab772e097f1294b0968089665a7e0a4dcd365
+PODFILE CHECKSUM: 74e2eef0616bdf1c08813ac18fdd80b4ee9e230f
 
 COCOAPODS: 1.11.2

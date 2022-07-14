@@ -1,0 +1,25 @@
+input_dir: AlbumVisualizer/
+output_dir: AlbumVisualizer/Generated/
+
+
+strings:
+    inputs:
+        - Resources/en.lproj
+    outputs:
+        - templateName: structured-swift5
+          params:
+            publicAccess: true
+            enumName: Strings
+          output: Strings+Generated.swift
+
+
+xcassets:
+  inputs:
+    - Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+        forceFileNameEnum: true
+      output: XCAssets+Generated.swift
+
