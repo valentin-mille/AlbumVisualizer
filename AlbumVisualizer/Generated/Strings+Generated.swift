@@ -10,6 +10,15 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
+
+  public enum OnBoarding {
+    /// Get Started
+    public static let buttonTitle = Strings.tr("Localizable", "onBoarding.buttonTitle")
+    /// Find all your photos in one single place. Search something that matters to you inside your photos.
+    public static let subtitle = Strings.tr("Localizable", "onBoarding.subtitle")
+    /// A new way to admire your Albums
+    public static let title = Strings.tr("Localizable", "onBoarding.title")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

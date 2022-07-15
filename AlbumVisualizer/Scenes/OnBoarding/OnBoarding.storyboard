@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,16 +17,101 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6R-7u-zUF">
+                                <rect key="frame" x="0.0" y="44" width="414" height="708"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MOI-Hg-qRJ">
+                                        <rect key="frame" x="20" y="590" width="374" height="88"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhK-ZL-NsS">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXa-TJ-OzV">
+                                                <rect key="frame" x="0.0" y="68.5" width="374" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="PaS-4I-3HN" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="41.5" y="0.0" width="331" height="560"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="Images"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="MOI-Hg-qRJ" firstAttribute="leading" secondItem="m6R-7u-zUF" secondAttribute="leading" constant="20" id="0uR-wq-h99"/>
+                                    <constraint firstAttribute="bottom" secondItem="MOI-Hg-qRJ" secondAttribute="bottom" constant="30" id="LcX-UZ-6CV"/>
+                                    <constraint firstItem="MOI-Hg-qRJ" firstAttribute="top" secondItem="PaS-4I-3HN" secondAttribute="bottom" constant="30" id="WVo-PD-yNr"/>
+                                    <constraint firstItem="PaS-4I-3HN" firstAttribute="centerX" secondItem="m6R-7u-zUF" secondAttribute="centerX" id="amC-zj-AR3"/>
+                                    <constraint firstItem="PaS-4I-3HN" firstAttribute="top" secondItem="m6R-7u-zUF" secondAttribute="top" id="fij-V2-FkS"/>
+                                    <constraint firstAttribute="trailing" secondItem="MOI-Hg-qRJ" secondAttribute="trailing" constant="20" id="sFN-EJ-WV4"/>
+                                    <constraint firstItem="PaS-4I-3HN" firstAttribute="width" secondItem="m6R-7u-zUF" secondAttribute="width" multiplier="0.8" id="y3n-tP-cfk"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Az-e9-Kvd" customClass="ButtonAnimated" customModule="AlbumVisualizer" customModuleProvider="target">
+                                <rect key="frame" x="30" y="782" width="354" height="50"/>
+                                <color key="backgroundColor" name="Primary"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8Md-gW-Gx5"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VIv-vC-gxJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6Az-e9-Kvd" secondAttribute="trailing" constant="30" id="HVJ-cJ-0jH"/>
+                            <constraint firstItem="m6R-7u-zUF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jna-jQ-kRn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="6Az-e9-Kvd" secondAttribute="bottom" constant="30" id="MFy-R9-dFb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="m6R-7u-zUF" secondAttribute="trailing" id="SMG-jp-LF5"/>
+                            <constraint firstItem="6Az-e9-Kvd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="WVN-Ht-vQz"/>
+                            <constraint firstItem="6Az-e9-Kvd" firstAttribute="top" secondItem="m6R-7u-zUF" secondAttribute="bottom" constant="30" id="cfY-ER-hGl"/>
+                            <constraint firstItem="m6R-7u-zUF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="gVu-WC-ULo"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="WTG-RM-DLV"/>
+                    <connections>
+                        <outlet property="animationView" destination="PaS-4I-3HN" id="WAM-Hq-JJJ"/>
+                        <outlet property="startButton" destination="6Az-e9-Kvd" id="sey-Nc-vL9"/>
+                        <outlet property="subtitleLabel" destination="GXa-TJ-OzV" id="UNa-R8-ZCV"/>
+                        <outlet property="titleLabel" destination="KhK-ZL-NsS" id="Tz1-pW-TUW"/>
+                        <segue destination="VW6-9A-cKq" kind="show" identifier="GoToAlbum" id="Dwr-3m-t91"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="129"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="128.57142857142856"/>
+        </scene>
+        <!--Album-->
+        <scene sceneID="8ee-mQ-uKC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Album" id="VW6-9A-cKq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i7z-U7-qPU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4Z-fY-Ca9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1817" y="129"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="Primary">
+            <color red="0.13699999451637268" green="0.70200002193450928" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

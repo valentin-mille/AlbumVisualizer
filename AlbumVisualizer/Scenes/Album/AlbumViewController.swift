@@ -8,22 +8,32 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
+    // MARK: - Properties
+
+    private let userDefaults = UserDefaults.standard
+
+    // MARK: - View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        prepareUI()
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        displayOnBoarding()
     }
-    */
 
+    // MARK: - Methods
+
+    private func displayOnBoarding() {
+        DispatchQueue.main.async {
+            if !self.userDefaults.onBoardingHasBeenShown {
+                self.present(StoryboardScene.OnBoarding.initialScene.instantiate(), animated: true)
+            }
+        }
+    }
+
+    private func prepareUI() {
+    }
 }

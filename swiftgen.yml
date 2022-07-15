@@ -23,3 +23,15 @@ xcassets:
         forceFileNameEnum: true
       output: XCAssets+Generated.swift
 
+ib:
+  inputs:
+    # 1
+    - .
+  outputs:
+    # 2
+    - templateName: scenes-swift5
+      output: IB-Scenes+Generated.swift
+    # 3
+    - templateName: segues-swift5
+      output: IB-Segues+Generated.swift
+
