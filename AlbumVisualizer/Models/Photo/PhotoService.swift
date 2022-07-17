@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct PhotoParams {
     let albumId: Int
@@ -18,18 +19,21 @@ struct PhotoParams {
 }
 
 enum PhotoService {
-    static func getPhotos(params: PhotoParams, completion: @escaping (Result<[Photo], APIServiceError>) -> Void) {
-        guard var url = URLComponents(string: EndPoints.Albums) else {
-            completion(.failure(.invalidURL))
-            return
+    static func getPhotos(params: PhotoParams) -> Observable<[Photo]> {
+        guard var urlComponent = URLComponents(string: EndPoints.Photos) else {
+            return Observable.error(APIServiceError.invalidURL)
         }
 
-        url.queryItems = [
+        urlComponent.queryItems = [
             URLQueryItem(name: "albumId", value: String(params.albumId)),
             URLQueryItem(name: "page", value: String(params.page))
         ]
-        url.percentEncodedQuery = url.percentEncodedQuery?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        urlComponent.percentEncodedQuery = urlComponent.percentEncodedQuery?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
 
-        URLSession.shared.resumeDataTask(with: url.url!, withTypedResponse: completion)
+        guard let url = urlComponent.url else {
+            return Observable.error(APIServiceError.invalidURL)
+        }
+
+        return URLSession.shared.dataTask(with: url)
     }
 }

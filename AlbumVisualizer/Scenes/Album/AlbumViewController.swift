@@ -48,7 +48,7 @@ class AlbumViewController: UIViewController {
     private func bind() {
         let reload = tableView.refreshControl!.rx.controlEvent(.valueChanged).asObservable()
         let albums = reload.flatMap { [unowned self] _ in
-            self.albumServices.getAlbumsRx().observe(on: MainScheduler.instance).catch { error in
+            self.albumServices.getAlbums().observe(on: MainScheduler.instance).catch { error in
                 self.presentAlert(message: error.localizedDescription)
                 return .empty()
             }

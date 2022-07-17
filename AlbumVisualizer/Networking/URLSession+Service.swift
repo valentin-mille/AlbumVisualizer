@@ -9,77 +9,33 @@ import Foundation
 import RxSwift
 
 extension URLSession {
-    @discardableResult
-    func resumeDataTask<T: Decodable>(
-        with url: URL,
-        withTypedResponse response: @escaping (Result<T, APIServiceError>) -> Void)
-        -> URLSessionDataTask {
-        let task = dataTask(with: url, withTypedResponse: response)
-        task.resume()
-        return task
-    }
-
-    @discardableResult
-    func dataTask<T: Decodable>(
-        with url: URL,
-        withTypedResponse response: @escaping (Result<T, APIServiceError>) -> Void)
-        -> URLSessionDataTask {
-        dataTask(with: url, usingResult: { result in
-            switch result {
-            case .success(let (urlResponse, data)):
-                let decoder = JSONDecoder()
-                do {
-                    let decodedTypeResponse = try decoder.decode(T.self, from: data)
-                    response(.success(decodedTypeResponse))
-                } catch (let error) {
-                    response(.failure(.decodeError))
+    func dataTask<T: Decodable>(with url: URL) -> Observable<T> {
+        rx.response(request: URLRequest(url: url))
+            .map { result throws -> Data in
+                guard result.response.statusCode == 200 else {
+                    throw APIServiceError.apiError
                 }
-            case .failure(let error):
-                response(.failure(.apiError))
+                return result.data
+            }.map { data throws -> T in
+                do {
+                    let decodedDataResponse = try JSONDecoder().decode(
+                        T.self, from: data)
+                    return decodedDataResponse
+                } catch let error {
+                    throw APIServiceError.decodeError
+                }
             }
-        })
     }
 
-    @discardableResult
-    func dataTask(
-        with url: URL,
-        usingResult result: @escaping (Result<(URLResponse, Data), APIServiceError>) -> Void)
-        -> URLSessionDataTask {
-        dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let error = error {
-                result(.failure(.apiError))
-                return
-            }
-            guard let response = response, let data = data else {
-                result(.failure(.invalidResponse))
-                return
-            }
-
-            result(.success((response, data)))
+    func decodeData<T: Decodable>(with data: Data) throws -> T {
+        do {
+            let decodedDataResponse = try JSONDecoder().decode(
+                T.self, from: data)
+            return decodedDataResponse
+        } catch let error {
+            throw APIServiceError.decodeError
         }
     }
-
-//    @discardableResult
-//    func dataTaskRx(
-//        with url: URL,
-//        usingResult single: @escaping (Single<(URLResponse, Data)>) -> Void)
-//        -> URLSessionDataTask {
-////            return rx.response(request: URLRequest(url: url)).map { (response, data) in
-////                return single(.success((response, data)))
-////            }
-//        dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
-//            if let error = error {
-//                result(.failure(.apiError))
-//                return
-//            }
-//            guard let response = response, let data = data else {
-//                result(.failure(.invalidResponse))
-//                return
-//            }
-//
-//            result(.success((response, data)))
-//        }
-//    }
 }
 
 public enum APIServiceError: Error {
@@ -89,4 +45,5 @@ public enum APIServiceError: Error {
     case noData
     case decodeError
     case invalidURL
+    case networkError
 }

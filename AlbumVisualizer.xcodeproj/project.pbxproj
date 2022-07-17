@@ -45,6 +45,7 @@
 		43D436BC2881BD7100D9249A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436BB2881BD7100D9249A /* Photo.swift */; };
 		43D436C22881C43200D9249A /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C12881C43200D9249A /* AlbumService.swift */; };
 		43D436C42881C43D00D9249A /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C32881C43D00D9249A /* PhotoService.swift */; };
+		43D436C62884826100D9249A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C52884826100D9249A /* Response.swift */; };
 		F9782D674750F78D21DEE8CD /* Pods_AlbumVisualizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C75642CB3C69E3FF74DC38A /* Pods_AlbumVisualizerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		43D436BB2881BD7100D9249A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		43D436C12881C43200D9249A /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		43D436C32881C43D00D9249A /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		43D436C52884826100D9249A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		700BA00AC4750FF0707CC830 /* Pods_AlbumVisualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumVisualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F8758C9A905C1DF352FDB8 /* Pods-AlbumVisualizer-AlbumVisualizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumVisualizer-AlbumVisualizerUITests.release.xcconfig"; path = "Target Support Files/Pods-AlbumVisualizer-AlbumVisualizerUITests/Pods-AlbumVisualizer-AlbumVisualizerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8C75642CB3C69E3FF74DC38A /* Pods_AlbumVisualizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumVisualizerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +213,7 @@
 				43D4366F2880173A00D9249A /* EndPoints.swift */,
 				43D436712880182500D9249A /* Reachability.swift */,
 				43D436732880183E00D9249A /* URLSession+Service.swift */,
+				43D436C52884826100D9249A /* Response.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				43D436902880337C00D9249A /* PhotoDetailViewModel.swift in Sources */,
 				43D4368C2880335300D9249A /* PhotoViewController.swift in Sources */,
 				43D436C22881C43200D9249A /* AlbumService.swift in Sources */,
+				43D436C62884826100D9249A /* Response.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +768,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -819,7 +823,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
