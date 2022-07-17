@@ -11,6 +11,11 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum Strings {
 
+  public enum Album {
+    /// Albums
+    public static let title = Strings.tr("Localizable", "album.title")
+  }
+
   public enum OnBoarding {
     /// Get Started
     public static let buttonTitle = Strings.tr("Localizable", "onBoarding.buttonTitle")

@@ -15,7 +15,7 @@ internal enum StoryboardScene {
   internal enum Album: StoryboardType {
     internal static let storyboardName = "Album"
 
-    internal static let initialScene = InitialSceneType<AlbumVisualizer.AlbumViewController>(storyboard: Album.self)
+    internal static let initialScene = InitialSceneType<UIKit.UINavigationController>(storyboard: Album.self)
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"

@@ -15,11 +15,11 @@ class OnBoardingViewModel {
     private let userDefaults = UserDefaults.standard
 
     struct Input {
-        let didPressButton: ControlEvent<Void>
+        let buttonPressed: ControlEvent<Void>
     }
 
     func transform(input: Input) -> Void {
-        let output = input.didPressButton.subscribe(onNext: {
+        let output = input.buttonPressed.subscribe(onNext: {
             self.userDefaults.onBoardingHasBeenShown = true
         })
         output.disposed(by: bag)

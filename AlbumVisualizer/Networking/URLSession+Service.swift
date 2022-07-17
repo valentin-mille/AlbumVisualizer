@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 extension URLSession {
     @discardableResult
@@ -49,7 +50,6 @@ extension URLSession {
                 result(.failure(.apiError))
                 return
             }
-
             guard let response = response, let data = data else {
                 result(.failure(.invalidResponse))
                 return
@@ -58,6 +58,28 @@ extension URLSession {
             result(.success((response, data)))
         }
     }
+
+//    @discardableResult
+//    func dataTaskRx(
+//        with url: URL,
+//        usingResult single: @escaping (Single<(URLResponse, Data)>) -> Void)
+//        -> URLSessionDataTask {
+////            return rx.response(request: URLRequest(url: url)).map { (response, data) in
+////                return single(.success((response, data)))
+////            }
+//        dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+//            if let error = error {
+//                result(.failure(.apiError))
+//                return
+//            }
+//            guard let response = response, let data = data else {
+//                result(.failure(.invalidResponse))
+//                return
+//            }
+//
+//            result(.success((response, data)))
+//        }
+//    }
 }
 
 public enum APIServiceError: Error {

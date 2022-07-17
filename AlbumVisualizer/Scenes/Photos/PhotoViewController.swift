@@ -9,9 +9,14 @@ import UIKit
 
 class PhotoViewController: UIViewController {
 
+    // MARK: - Properties
+    var album: Album?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Photos"
+        print("Current Album: ", album)
         // Do any additional setup after loading the view.
     }
     

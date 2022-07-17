@@ -38,7 +38,7 @@ class OnBoardingViewController: UIViewController {
             return
         }
 
-        let input = OnBoardingViewModel.Input(didPressButton: startButton.rx.tap)
+        let input = OnBoardingViewModel.Input(buttonPressed: startButton.rx.tap)
         viewModel.transform(input: input)
     }
 
@@ -47,11 +47,11 @@ class OnBoardingViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.play()
 
-        startButton.setTitle(Strings.OnBoarding.buttonTitle, for: .normal)
+        startButton.setTitle(Strings.OnBoarding.buttonTitle.capitalized, for: .normal)
         startButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         startButton.layer.cornerRadius = 15
 
-        titleLabel.text = Strings.OnBoarding.title
+        titleLabel.text = Strings.OnBoarding.title.capitalized
         subtitleLabel.text = Strings.OnBoarding.subtitle
     }
 
