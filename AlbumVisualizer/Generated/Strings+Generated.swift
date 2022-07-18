@@ -12,7 +12,7 @@ import Foundation
 public enum Strings {
 
   public enum Album {
-    /// Albums
+    /// Albums 📒
     public static let title = Strings.tr("Localizable", "album.title")
   }
 

@@ -33,7 +33,7 @@ class PhotoViewController: UIViewController {
     }
 
     private func prepareUI() {
-        title = "Photos"
+        title = "Photos 🎞"
         collectionView.refreshControl = UIRefreshControl()
     }
 

@@ -16,7 +16,7 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var photoTitle: UILabel!
+    @IBOutlet weak var photoTitle: UILabel!
 
     // MARK: - Properties
 
@@ -39,7 +39,7 @@ class PhotoDetailViewController: UIViewController {
 
     private func prepareUI() {
         scrollView.delegate = self
-//        photoTitle.text = photo.title
+        photoTitle.text = photo.title
         photoImage.layer.cornerRadius = 15
         if let url = URL(string: photo.url) {
             photoImage.kf.setImage(with: url)
