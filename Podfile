@@ -10,6 +10,7 @@ target 'AlbumVisualizer' do
   pod 'RxCocoa', '6.5.0'
   pod 'lottie-ios', '3.4.0'
   pod 'SwiftGen', '~> 6.5.1'
+  pod 'Kingfisher', '~> 7.0'
 
   target 'AlbumVisualizerTests' do
     inherit! :search_paths

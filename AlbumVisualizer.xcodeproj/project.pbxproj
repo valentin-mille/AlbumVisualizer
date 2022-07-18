@@ -27,8 +27,6 @@
 		43D436862880333400D9249A /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436852880333400D9249A /* AlbumViewController.swift */; };
 		43D4368A2880334B00D9249A /* Photos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D436892880334B00D9249A /* Photos.storyboard */; };
 		43D4368C2880335300D9249A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4368B2880335300D9249A /* PhotoViewController.swift */; };
-		43D4368E2880335800D9249A /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4368D2880335800D9249A /* PhotoViewModel.swift */; };
-		43D436902880337C00D9249A /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D4368F2880337C00D9249A /* PhotoDetailViewModel.swift */; };
 		43D436922880338700D9249A /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436912880338700D9249A /* PhotoDetailViewController.swift */; };
 		43D436942880338B00D9249A /* PhotoDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D436932880338B00D9249A /* PhotoDetail.storyboard */; };
 		43D436962880521500D9249A /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 43D436952880521500D9249A /* swiftgen.yml */; };
@@ -46,6 +44,8 @@
 		43D436C22881C43200D9249A /* AlbumService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C12881C43200D9249A /* AlbumService.swift */; };
 		43D436C42881C43D00D9249A /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C32881C43D00D9249A /* PhotoService.swift */; };
 		43D436C62884826100D9249A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C52884826100D9249A /* Response.swift */; };
+		43D436C82884A84D00D9249A /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C72884A84D00D9249A /* PhotoCollectionViewCell.swift */; };
+		43D436CA2884AD7300D9249A /* UIViewController+presentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D436C92884AD7300D9249A /* UIViewController+presentAlert.swift */; };
 		F9782D674750F78D21DEE8CD /* Pods_AlbumVisualizerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C75642CB3C69E3FF74DC38A /* Pods_AlbumVisualizerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,8 +92,6 @@
 		43D436852880333400D9249A /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		43D436892880334B00D9249A /* Photos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Photos.storyboard; sourceTree = "<group>"; };
 		43D4368B2880335300D9249A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		43D4368D2880335800D9249A /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
-		43D4368F2880337C00D9249A /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		43D436912880338700D9249A /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		43D436932880338B00D9249A /* PhotoDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoDetail.storyboard; sourceTree = "<group>"; };
 		43D436952880521500D9249A /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -112,6 +110,8 @@
 		43D436C12881C43200D9249A /* AlbumService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumService.swift; sourceTree = "<group>"; };
 		43D436C32881C43D00D9249A /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
 		43D436C52884826100D9249A /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		43D436C72884A84D00D9249A /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		43D436C92884AD7300D9249A /* UIViewController+presentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+presentAlert.swift"; sourceTree = "<group>"; };
 		700BA00AC4750FF0707CC830 /* Pods_AlbumVisualizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumVisualizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78F8758C9A905C1DF352FDB8 /* Pods-AlbumVisualizer-AlbumVisualizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlbumVisualizer-AlbumVisualizerUITests.release.xcconfig"; path = "Target Support Files/Pods-AlbumVisualizer-AlbumVisualizerUITests/Pods-AlbumVisualizer-AlbumVisualizerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8C75642CB3C69E3FF74DC38A /* Pods_AlbumVisualizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlbumVisualizerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,8 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				43D436892880334B00D9249A /* Photos.storyboard */,
-				43D4368D2880335800D9249A /* PhotoViewModel.swift */,
 				43D4368B2880335300D9249A /* PhotoViewController.swift */,
+				43D436C72884A84D00D9249A /* PhotoCollectionViewCell.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -261,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				43D436932880338B00D9249A /* PhotoDetail.storyboard */,
-				43D4368F2880337C00D9249A /* PhotoDetailViewModel.swift */,
 				43D436912880338700D9249A /* PhotoDetailViewController.swift */,
 			);
 			path = PhotoDetail;
@@ -327,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				43D436AE2881A28400D9249A /* UserDefaults+Keys.swift */,
+				43D436C92884AD7300D9249A /* UIViewController+presentAlert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -637,12 +637,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D436702880173A00D9249A /* EndPoints.swift in Sources */,
-				43D4368E2880335800D9249A /* PhotoViewModel.swift in Sources */,
 				43D436AA2880607B00D9249A /* AnimateHighlight.swift in Sources */,
 				43D436AF2881A28400D9249A /* UserDefaults+Keys.swift in Sources */,
 				43D436BC2881BD7100D9249A /* Photo.swift in Sources */,
 				43D436722880182500D9249A /* Reachability.swift in Sources */,
 				43D4367E288032A100D9249A /* OnBoardingViewController.swift in Sources */,
+				43D436C82884A84D00D9249A /* PhotoCollectionViewCell.swift in Sources */,
 				43D436862880333400D9249A /* AlbumViewController.swift in Sources */,
 				43D436A52880584C00D9249A /* Strings+Generated.swift in Sources */,
 				43D43680288032AA00D9249A /* OnBoardingViewModel.swift in Sources */,
@@ -653,11 +653,11 @@
 				43D436AC2880609700D9249A /* ButtonAnimated.swift in Sources */,
 				43D436C42881C43D00D9249A /* PhotoService.swift in Sources */,
 				43D43646288016B500D9249A /* AlbumVisualizer.xcdatamodeld in Sources */,
+				43D436CA2884AD7300D9249A /* UIViewController+presentAlert.swift in Sources */,
 				43D436A62880584C00D9249A /* XCAssets+Generated.swift in Sources */,
 				43D436922880338700D9249A /* PhotoDetailViewController.swift in Sources */,
 				43D436742880183E00D9249A /* URLSession+Service.swift in Sources */,
 				43D436BA2881BD6000D9249A /* Album.swift in Sources */,
-				43D436902880337C00D9249A /* PhotoDetailViewModel.swift in Sources */,
 				43D4368C2880335300D9249A /* PhotoViewController.swift in Sources */,
 				43D436C22881C43200D9249A /* AlbumService.swift in Sources */,
 				43D436C62884826100D9249A /* Response.swift in Sources */,

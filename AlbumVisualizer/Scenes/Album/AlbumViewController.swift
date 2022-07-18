@@ -34,7 +34,9 @@ class AlbumViewController: UIViewController {
         displayOnBoarding()
 
         // Remove selected cell when back to ViewController
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Methods
@@ -50,12 +52,11 @@ class AlbumViewController: UIViewController {
         let albums = reload.flatMap { [unowned self] _ in
             self.albumServices.getAlbums().observe(on: MainScheduler.instance).catch { error in
                 self.presentAlert(message: error.localizedDescription)
+                self.endRefreshing()
                 return .empty()
             }
         }.do(onNext: { _ in
-            DispatchQueue.main.async {
-                self.tableView.refreshControl?.endRefreshing()
-            }
+            self.endRefreshing()
         })
 
         albums
@@ -91,9 +92,12 @@ class AlbumViewController: UIViewController {
         }
     }
 
-    private func presentAlert(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
+    private func endRefreshing() {
+        if tableView.refreshControl!.isRefreshing {
+            DispatchQueue.main.async {
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
+        }
     }
 }

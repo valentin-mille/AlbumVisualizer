@@ -12,13 +12,13 @@ struct Photo: Codable {
     let albumId: Int
     let title: String
     let url: String
-    let thumbnailURL: String
+    let thumbnailUrl: String
 
     enum CodingKeys: String, CodingKey {
         case id
         case albumId
         case title
         case url
-        case thumbnailURL
+        case thumbnailUrl
     }
 }

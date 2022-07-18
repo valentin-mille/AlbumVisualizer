@@ -18,8 +18,8 @@ struct PhotoParams {
     }
 }
 
-enum PhotoService {
-    static func getPhotos(params: PhotoParams) -> Observable<[Photo]> {
+class PhotoService {
+    func getPhotos(params: PhotoParams) -> Observable<[Photo]> {
         guard var urlComponent = URLComponents(string: EndPoints.Photos) else {
             return Observable.error(APIServiceError.invalidURL)
         }

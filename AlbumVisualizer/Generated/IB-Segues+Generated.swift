@@ -18,6 +18,9 @@ internal enum StoryboardSegue {
   internal enum OnBoarding: String, SegueType {
     case goToAlbum = "GoToAlbum"
   }
+  internal enum Photos: String, SegueType {
+    case goToDetail = "GoToDetail"
+  }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name
 

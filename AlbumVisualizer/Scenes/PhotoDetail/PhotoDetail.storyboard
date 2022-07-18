@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,13 +16,47 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSH-uZ-Yug">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZOa-by-Jv4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZOa-by-Jv4" firstAttribute="top" secondItem="eSH-uZ-Yug" secondAttribute="top" id="0V4-ye-Dft"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZOa-by-Jv4" secondAttribute="trailing" id="6z1-i5-PgG"/>
+                                    <constraint firstItem="ZOa-by-Jv4" firstAttribute="width" secondItem="eSH-uZ-Yug" secondAttribute="width" id="9sW-rA-3dB"/>
+                                    <constraint firstItem="ZOa-by-Jv4" firstAttribute="leading" secondItem="eSH-uZ-Yug" secondAttribute="leading" id="G2x-r7-MVv"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZOa-by-Jv4" secondAttribute="bottom" id="QGS-u8-8fm"/>
+                                    <constraint firstItem="ZOa-by-Jv4" firstAttribute="height" secondItem="eSH-uZ-Yug" secondAttribute="height" id="WZ4-pN-xmU"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Na7-nA-Kic"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Ibe-bI-x2y"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eSH-uZ-Yug" secondAttribute="bottom" id="1Er-oW-EWB"/>
+                            <constraint firstItem="eSH-uZ-Yug" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="BOX-wl-K7n"/>
+                            <constraint firstAttribute="trailing" secondItem="eSH-uZ-Yug" secondAttribute="trailing" id="Flr-HV-khN"/>
+                            <constraint firstItem="eSH-uZ-Yug" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="yOd-e8-XMQ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageViewBottomConstraint" destination="QGS-u8-8fm" id="hw1-TU-pw8"/>
+                        <outlet property="imageViewLeadingConstraint" destination="G2x-r7-MVv" id="kdN-9W-Nbm"/>
+                        <outlet property="imageViewTopConstraint" destination="0V4-ye-Dft" id="w9N-5E-3gH"/>
+                        <outlet property="imageViewTrailingConstraint" destination="6z1-i5-PgG" id="1Sa-fx-6PF"/>
+                        <outlet property="photoImage" destination="ZOa-by-Jv4" id="wBU-Y2-221"/>
+                        <outlet property="scrollView" destination="eSH-uZ-Yug" id="2OM-lF-Kaf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="129"/>
+            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
         </scene>
     </scenes>
     <resources>
