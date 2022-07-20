@@ -79,7 +79,6 @@
 		43D43638288016B500D9249A /* AlbumVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlbumVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D4363B288016B500D9249A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43D4363D288016B500D9249A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43D43645288016B500D9249A /* AlbumVisualizer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlbumVisualizer.xcdatamodel; sourceTree = "<group>"; };
 		43D43647288016B500D9249A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43D4364A288016B500D9249A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43D4364C288016B500D9249A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -202,7 +201,6 @@
 				43D4363B288016B500D9249A /* AppDelegate.swift */,
 				43D4363D288016B500D9249A /* SceneDelegate.swift */,
 				43D4364C288016B500D9249A /* Info.plist */,
-				43D43644288016B500D9249A /* AlbumVisualizer.xcdatamodeld */,
 			);
 			path = AlbumVisualizer;
 			sourceTree = "<group>";
@@ -1039,16 +1037,6 @@
 				43CB72D0288565ED0092B467 /* Albums.xcdatamodel */,
 			);
 			currentVersion = 43CB72D0288565ED0092B467 /* Albums.xcdatamodel */;
-			path = AlbumVisualizer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		43D43644288016B500D9249A /* AlbumVisualizer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				43D43645288016B500D9249A /* AlbumVisualizer.xcdatamodel */,
-			);
-			currentVersion = 43D43645288016B500D9249A /* AlbumVisualizer.xcdatamodel */;
 			path = AlbumVisualizer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
