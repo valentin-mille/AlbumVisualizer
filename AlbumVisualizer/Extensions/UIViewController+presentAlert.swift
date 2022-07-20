@@ -9,9 +9,11 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func presentAlert(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true)
+    func presentNetworkAlert() {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: Strings.Network.title, message: Strings.Network.message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertController, animated: true)
+        }
     }
 }

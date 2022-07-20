@@ -17,6 +17,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "PhotoCollectionViewCell"
 
+    // MARK: - Methods
+
     func setupView(imageURL: String, title: String) {
         if let url = URL(string: imageURL) {
             photoImage.kf.setImage(with: url)

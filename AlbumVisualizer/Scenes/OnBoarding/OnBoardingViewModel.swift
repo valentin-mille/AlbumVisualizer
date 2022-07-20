@@ -18,7 +18,9 @@ class OnBoardingViewModel {
         let buttonPressed: ControlEvent<Void>
     }
 
-    func transform(input: Input) -> Void {
+    // MARK: - Methods
+
+    func transform(input: Input) {
         let output = input.buttonPressed.subscribe(onNext: {
             self.userDefaults.onBoardingHasBeenShown = true
         })

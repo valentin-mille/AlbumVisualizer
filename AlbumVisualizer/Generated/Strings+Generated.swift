@@ -16,6 +16,13 @@ public enum Strings {
     public static let title = Strings.tr("Localizable", "album.title")
   }
 
+  public enum Network {
+    /// You are not connected to Internet. Please try again later.
+    public static let message = Strings.tr("Localizable", "network.message")
+    /// Network Error
+    public static let title = Strings.tr("Localizable", "network.title")
+  }
+
   public enum OnBoarding {
     /// Get Started
     public static let buttonTitle = Strings.tr("Localizable", "onBoarding.buttonTitle")
@@ -23,6 +30,11 @@ public enum Strings {
     public static let subtitle = Strings.tr("Localizable", "onBoarding.subtitle")
     /// A new way to admire your Albums
     public static let title = Strings.tr("Localizable", "onBoarding.title")
+  }
+
+  public enum Photo {
+    /// Photos 🎞
+    public static let title = Strings.tr("Localizable", "photo.title")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

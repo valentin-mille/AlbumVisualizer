@@ -21,6 +21,8 @@ class PhotoViewController: UIViewController {
     private let bag = DisposeBag()
     private let edges = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     private var selectedPhoto: Photo?
+    private var photos: Observable<[Photo]> = .empty()
+    private var refreshController = UIRefreshControl()
     var album: Album!
 
     // MARK: - View lifecycle
@@ -32,22 +34,30 @@ class PhotoViewController: UIViewController {
         bind()
     }
 
+    // MARK: - Methods
+
     private func prepareUI() {
-        title = "Photos 🎞"
-        collectionView.refreshControl = UIRefreshControl()
+        title = Strings.Photo.title
+        collectionView.refreshControl = refreshController
     }
 
     private func bind() {
-        let reload = collectionView.refreshControl!.rx.controlEvent(.valueChanged).asObservable()
-        let photos = reload.flatMap { [unowned self] _ in
+        let reload = refreshController.rx.controlEvent(.valueChanged).asObservable()
+        photos = reload.flatMap { [unowned self] _ in
             self.photoService.getPhotos(params: PhotoParams(albumId: self.album.id, page: 1)).catch { error in
-                self.presentAlert(message: error.localizedDescription)
-                return .empty()
+                self.presentNetworkAlert()
+                self.endRefreshing()
+                return .just(CoreDataManager.shared.fetchPhotoConverted(album: self.album))
             }
-        }.do(onNext: { _ in
+        }.do(onNext: { photos in
             DispatchQueue.main.async {
-                self.collectionView.refreshControl?.endRefreshing()
+                for photo in photos {
+                    CoreDataManager.shared.insertPhoto(toInsert: photo)
+                }
             }
+            self.endRefreshing()
+        }, onError: { _ in
+            self.endRefreshing()
         })
 
         photos.bind(to: collectionView.rx.items(
@@ -61,13 +71,22 @@ class PhotoViewController: UIViewController {
             self?.performSegue(withIdentifier: StoryboardSegue.Photos.goToDetail.rawValue, sender: self)
         }).disposed(by: bag)
 
-        collectionView.refreshControl?.sendActions(for: .valueChanged)
+        refreshController.sendActions(for: .valueChanged)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         if segue.identifier == StoryboardSegue.Photos.goToDetail.rawValue {
             if let detailVC = segue.destination as? PhotoDetailViewController {
                 detailVC.photo = selectedPhoto
+            }
+        }
+    }
+
+    private func endRefreshing() {
+        DispatchQueue.main.async {
+            if self.refreshController.isRefreshing {
+                self.refreshController.endRefreshing()
+                self.collectionView.reloadData()
             }
         }
     }

@@ -20,6 +20,7 @@ class AlbumViewController: UIViewController {
     private let albumServices = AlbumService()
     private let bag = DisposeBag()
     private var selectedAlbum: Album?
+    private var albums: Observable<[Album]> = .empty()
 
     // MARK: - View lifecycle
 
@@ -33,10 +34,14 @@ class AlbumViewController: UIViewController {
         super.viewWillAppear(animated)
         displayOnBoarding()
 
-        // Remove selected cell when back to ViewController
+        // Remove selected cell color when back to ViewController
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 
     // MARK: - Methods
@@ -49,13 +54,18 @@ class AlbumViewController: UIViewController {
 
     private func bind() {
         let reload = tableView.refreshControl!.rx.controlEvent(.valueChanged).asObservable()
-        let albums = reload.flatMap { [unowned self] _ in
+        albums = reload.flatMap { [unowned self] _ in
             self.albumServices.getAlbums().observe(on: MainScheduler.instance).catch { error in
-                self.presentAlert(message: error.localizedDescription)
                 self.endRefreshing()
-                return .empty()
+                self.presentNetworkAlert()
+                return .just(CoreDataManager.shared.fetchAlbumsConverted())
             }
-        }.do(onNext: { _ in
+        }.do(onNext: { albums in
+            for album in albums {
+                CoreDataManager.shared.insertAlbum(toInsert: album)
+            }
+            self.endRefreshing()
+        }, onError: { _ in
             self.endRefreshing()
         })
 
@@ -93,8 +103,8 @@ class AlbumViewController: UIViewController {
     }
 
     private func endRefreshing() {
-        if tableView.refreshControl!.isRefreshing {
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            if ((self.tableView.refreshControl?.isRefreshing) != nil) {
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }

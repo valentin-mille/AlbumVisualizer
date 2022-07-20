@@ -14,3 +14,10 @@
 
 // Album Screen
 "album.title" = "Albums 📒";
+
+// Photo Screen
+"photo.title" = "Photos 🎞";
+
+// Networking
+"network.title" = "Network Error";
+"network.message" = "You are not connected to Internet. Please try again later.";

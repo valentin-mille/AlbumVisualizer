@@ -17,13 +17,7 @@ extension URLSession {
                 }
                 return result.data
             }.map { data throws -> T in
-                do {
-                    let decodedDataResponse = try JSONDecoder().decode(
-                        T.self, from: data)
-                    return decodedDataResponse
-                } catch let error {
-                    throw APIServiceError.decodeError
-                }
+                return try self.decodeData(with: data)
             }
     }
 

@@ -59,6 +59,6 @@ class OnBoardingViewController: UIViewController {
 
     @IBAction
     func startAction(_: ButtonAnimated) {
-        self.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }
